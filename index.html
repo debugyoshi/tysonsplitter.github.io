@@ -439,22 +439,37 @@
 					let checkl = document.getElementById("sand").value || 0;
 					let checkm = document.getElementById("super").value || 0;
 					let checkn = document.getElementById("mike").value || 0;
+
+					let newa = parseTime(checka);
+					let newb = parseTime(checkb);
+					let newc = parseTime(checkc);
+					let newd = parseTime(checkd);
+					let newe = parseTime(checke);
+					let newf = parseTime(checkf);
+					let newg = parseTime(checkg);
+					let newh = parseTime(checkh);
+					let newi = parseTime(checki);
+					let newj = parseTime(checkj);
+					let newk = parseTime(checkk);
+					let newl = parseTime(checkl);
+					let newm = parseTime(checkm);
+					let newn = parseTime(checkn);
 					
 
-					localStorage.setItem("glass_pb", checka);
-					localStorage.setItem("von_pb", checkb);
-					localStorage.setItem("piston_pb", checkc);
-					localStorage.setItem("don_pb", checkd);
-					localStorage.setItem("king_pb", checke);
-					localStorage.setItem("great_pb", checkf);
-					localStorage.setItem("bald_pb", checkg);
-					localStorage.setItem("piston2_pb", checkh);
-					localStorage.setItem("soda_pb", checki);
-					localStorage.setItem("bald2_pb", checkj);
-					localStorage.setItem("don2_pb", checkk);
-					localStorage.setItem("sand_pb", checkl);
-					localStorage.setItem("super_pb", checkm);
-					localStorage.setItem("mike_pb", checkn);
+					localStorage.setItem("glass_pb", newa);
+					localStorage.setItem("von_pb", newb);
+					localStorage.setItem("piston_pb", newc);
+					localStorage.setItem("don_pb", newd);
+					localStorage.setItem("king_pb", newe);
+					localStorage.setItem("great_pb", newf);
+					localStorage.setItem("bald_pb", newg);
+					localStorage.setItem("piston2_pb", newh);
+					localStorage.setItem("soda_pb", newi);
+					localStorage.setItem("bald2_pb", newj);
+					localStorage.setItem("don2_pb", newk);
+					localStorage.setItem("sand_pb", newl);
+					localStorage.setItem("super_pb", newm);
+					localStorage.setItem("mike_pb", newn);
 					
 
 					glass_pb.innerHTML = formatTime(checka) || "";
