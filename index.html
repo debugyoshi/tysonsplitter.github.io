@@ -44,7 +44,7 @@
 				<td><p id="glass_split"></p></td>
 				<td><p id="glass_best"></p></td>
 				<td><p id="glass_pb"></p></td>
-				<td><p>42.00</p></td>
+				<td><p id="glass_wr"></p></td>
 			</tr>
 			<tr>
 				<td>Von Kaiser</td>
@@ -52,7 +52,7 @@
 				<td><p id="von_split"></p></td>
 				<td><p id="von_best"></p></td>
 				<td><p id="von_pb"></p></td>
-				<td><p>36.25</p></td>
+				<td><p id="von_wr"></p></td>
 			</tr>
 			<tr>
 				<td>Piston Honda</td>
@@ -60,7 +60,7 @@
 				<td><p id="piston_split"></p></td>
 				<td><p id="piston_best"></p></td>
 				<td><p id="piston_pb"></p></td>
-				<td><p>43.25</p></td>
+				<td><p id="piston_wr"></p></td>
 			</tr>
 			<tr>
 				<td>Don Flamenco</td>
@@ -68,7 +68,7 @@
 				<td><p id="don_split"></p></td>
 				<td><p id="don_best"></p></td>
 				<td><p id="don_pb"></p></td>
-				<td><p>14.99</p></td>
+				<td><p id="don_wr"></p></td>
 			</tr>
 			<tr>
 				<td>King Hippo</td>
@@ -76,7 +76,7 @@
 				<td><p id="king_split"></p></td>
 				<td><p id="king_best"></p></td>
 				<td><p id="king_pb"></p></td>
-				<td><p>40.82</p></td>
+				<td><p id="king_wr"></p></td>
 			</tr>
 			<tr>
 				<td>Great Tiger</td>
@@ -84,7 +84,7 @@
 				<td><p id="great_split"></p></td>
 				<td><p id="great_best"></p></td>
 				<td><p id="great_pb"></p></td>
-				<td><p>48.00</p></td>
+				<td><p id="great_wr"></p></td>
 			</tr>
 			<tr>
 				<td>Bald Bull</td>
@@ -92,7 +92,7 @@
 				<td><p id="bald_split"></p></td>
 				<td><p id="bald_best"></p></td>
 				<td><p id="bald_pb"></p></td>
-				<td><p>1:06.00</p></td>
+				<td><p id="bald_wr"></p></td>
 			</tr>
 			<tr>
 				<td>Piston Honda 2</td>
@@ -100,7 +100,7 @@
 				<td><p id="piston2_split"></p></td>
 				<td><p id="piston2_best"></p></td>
 				<td><p id="piston2_pb"></p></td>
-				<td><p>42.61</p></td>
+				<td><p id="piston2_wr"></p></td>
 			</tr>
 			<tr>
 				<td>Soda Popinski</td>
@@ -108,7 +108,7 @@
 				<td><p id="soda_split"></p></td>
 				<td><p id="soda_best"></p></td>
 				<td><p id="soda_pb"></p></td>
-				<td><p>50.97</p></td>
+				<td><p id="soda_wr"></p></td>
 			</tr>
 			<tr>
 				<td>Bald Bull 2</td>
@@ -116,7 +116,7 @@
 				<td><p id="bald2_split"></p></td>
 				<td><p id="bald2_best"></p></td>
 				<td><p id="bald2_pb"></p></td>
-				<td><p>1:28.61</p></td>
+				<td><p id="bald2_wr"></p></td>
 			</tr>
 			<tr>
 				<td>Don Flamenco 2</td>
@@ -124,7 +124,7 @@
 				<td><p id="don2_split"></p></td>
 				<td><p id="don2_best"></p></td>
 				<td><p id="don2_pb"></p></td>
-				<td><p>1:30.25</p></td>
+				<td><p id="don2_wr"></p></td>
 			</tr>
 			<tr>
 				<td>Mr. Sandman</td>
@@ -132,7 +132,7 @@
 				<td><p id="sand_split"></p></td>
 				<td><p id="sand_best"></p></td>
 				<td><p id="sand_pb"></p></td>
-				<td><p>2:22.25</p></td>
+				<td><p id="sand_wr"></p></td>
 			</tr>
 			<tr>
 			<td>Super Macho Man</td>
@@ -140,7 +140,7 @@
 				<td><p id="super_split"></p></td>
 				<td><p id="super_best"></p></td>
 				<td><p id="super_pb"></p></td>
-				<td><p>53.48</p></td>
+				<td><p id="super_wr"></p></td>
 			</tr>
 			<tr>
 				<td>Mike Tyson</td>
@@ -148,7 +148,7 @@
 				<td><p id="mike_split"></p></td>
 				<td><p id="mike_best"></p></td>
 				<td><p id="mike_pb"></p></td>
-				<td><p>2:07.00</p></td>
+				<td><p id="mike_wr"></p></td>
 			</tr>
 		</table>
 		<b>Your best time is <span id="personalBest"></span>!</b>
@@ -326,74 +326,74 @@
 				let tyson_best = parseTime(bestn);
 
 
-				if ((g_split < g_best && g_split !== null)|| g_best === 0) {
+				if ((g_split < g_best && g_split !== 0)|| g_best === 0) {
 					let g_new = g_split;
 					console.log(g_new);
 					glass_best.innerHTML = formatTime(g_new);
 					localStorage.setItem("glass_b", g_new);
 				}
-				if ((v_active < v_best && v_active !== null) || v_best === 0) {
+				if ((v_active < v_best && v_active !== 0) || v_best === 0) {
 					let v_new = v_active;
 					console.log(v_new)
 					von_best.innerHTML = formatTime(v_new);
 					localStorage.setItem("von_b", v_new);
 				}
-				if ((p_active < p_best && p_active !== null) || p_best === 0) {
+				if ((p_active < p_best && p_active !== 0) || p_best === 0) {
 					let p_new = p_active;
 					piston_best.innerHTML = formatTime(p_new);
 					localStorage.setItem("piston_b", p_new);
 				}
-				if ((d_active < d_best && d_active !== null) || d_best === 0) {
+				if ((d_active < d_best && d_active !== 0) || d_best === 0) {
 					let d_new = d_active;
 					don_best.innerHTML = formatTime(d_new);
 					localStorage.setItem("don_b", d_new);
 				}
-				if ((k_active < k_best && k_active !== null) || k_best === 0) {
+				if ((k_active < k_best && k_active !== 0) || k_best === 0) {
 					let k_new = k_active;
 					king_best.innerHTML = formatTime(k_new);
 					localStorage.setItem("king_b", k_new);
 				}
-				if ((gr_active < gr_best && gr_active !== null) || gr_best === 0) {
+				if ((gr_active < gr_best && gr_active !== 0) || gr_best === 0) {
 					let gr_new = gr_active;
 					great_best.innerHTML = formatTime(gr_new);
 					localStorage.setItem("great_b", gr_new);
 				}
-				if ((bd_active < bd_best && bd_active !== null) || bd_best === 0) {
+				if ((bd_active < bd_best && bd_active !== 0) || bd_best === 0) {
 					let bd_new = bd_active;
 					bald_best.innerHTML = formatTime(bd_new);
 					localStorage.setItem("bald_b", bd_new);
 				}
-				if ((p2_active < p2_best && p2_active !== null) || p2_best === 0) {
+				if ((p2_active < p2_best && p2_active !== 0) || p2_best === 0) {
 					let p2_new = p2_active;
 					piston2_best.innerHTML = formatTime(p2_new);
 					localStorage.setItem("piston2_b", p2_new);
 				}
-				if ((s_active < s_best && s_active !== null) || s_best === 0) {
+				if ((s_active < s_best && s_active !== 0) || s_best === 0) {
 					let s_new = s_active;
 					soda_best.innerHTML = formatTime(s_new);
 					localStorage.setItem("soda_b", s_new);
 				}
-				if ((bd2_active < bd2_best && bd2_active !== null) || bd2_best === 0) {
+				if ((bd2_active < bd2_best && bd2_active !== 0) || bd2_best === 0) {
 					let bd2_new = bd2_active;
 					bald2_best.innerHTML = formatTime(bd2_new);
 					localStorage.setItem("bald2_b", bd2_new);
 				}
-				if ((d2_active < d2_best && d2_active !== null) || d2_best === 0) {
+				if ((d2_active < d2_best && d2_active !== 0) || d2_best === 0) {
 					let d2_new = d2_active;
 					don2_best.innerHTML = formatTime(d2_new);
 					localStorage.setItem("don2_b", d2_new);
 				}
-				if ((sans_active < sans_best && sans_active !== null) || sans_best === 0) {
+				if ((sans_active < sans_best && sans_active !== 0) || sans_best === 0) {
 					let sans_new = sans_active;
 					sand_best.innerHTML = formatTime(sans_new);
 					localStorage.setItem("sand_b", sans_new);
 				}
-				if ((m_active < m_best && m_active !== null) || m_best === 0) {
+				if ((m_active < m_best && m_active !== 0) || m_best === 0) {
 					let m_new = m_active;
 					super_best.innerHTML = formatTime(m_new);
 					localStorage.setItem("super_b", m_new);
 				}
-				if ((tyson_active < tyson_best && tyson_active !== null) || tyson_best === 0) {
+				if ((tyson_active < tyson_best && tyson_active !== 0) || tyson_best === 0) {
 					let tyson_new = tyson_active;
 					mike_best.innerHTML = formatTime(tyson_new);
 					localStorage.setItem("mike_b", tyson_new);
