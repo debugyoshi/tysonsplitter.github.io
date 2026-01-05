@@ -27,8 +27,10 @@
 		</style>
 	</head>
 	<body>
-		<button type="button" onclick="reloadData()">Input</button>
 		<button type="button" onclick="endedRun()">End Run</button>
+		<button type="button" onclick="download()">Download Data</button>
+		<input type="file" id="fileUpload" style="display:none" onchange="upload(this)">
+		<button type="button" onclick="document.getElementById('fileUpload').click()">Upload Data</button>
 		<table>
 			<tr>
 				<th>Opponents</th>
@@ -40,7 +42,7 @@
 			</tr>
 			<tr>
 				<td>Glass Joe</td>
-				<td><input id="glass"></td>
+				<td><input id="glass" onchange="reloadData()"></td>
 				<td><p id="glass_split"></p></td>
 				<td><p id="glass_best"></p></td>
 				<td><p id="glass_pb"></p></td>
@@ -48,7 +50,7 @@
 			</tr>
 			<tr>
 				<td>Von Kaiser</td>
-				<td><input id="von"></td>
+				<td><input id="von" onchange="reloadData()"></td>
 				<td><p id="von_split"></p></td>
 				<td><p id="von_best"></p></td>
 				<td><p id="von_pb"></p></td>
@@ -56,7 +58,7 @@
 			</tr>
 			<tr>
 				<td>Piston Honda</td>
-				<td><input id="piston"></td>
+				<td><input id="piston" onchange="reloadData()"></td>
 				<td><p id="piston_split"></p></td>
 				<td><p id="piston_best"></p></td>
 				<td><p id="piston_pb"></p></td>
@@ -64,7 +66,7 @@
 			</tr>
 			<tr>
 				<td>Don Flamenco</td>
-				<td><input id="don"></td>
+				<td><input id="don" onchange="reloadData()"></td>
 				<td><p id="don_split"></p></td>
 				<td><p id="don_best"></p></td>
 				<td><p id="don_pb"></p></td>
@@ -72,7 +74,7 @@
 			</tr>
 			<tr>
 				<td>King Hippo</td>
-				<td><input id="king"></td>
+				<td><input id="king" onchange="reloadData()"></td>
 				<td><p id="king_split"></p></td>
 				<td><p id="king_best"></p></td>
 				<td><p id="king_pb"></p></td>
@@ -80,7 +82,7 @@
 			</tr>
 			<tr>
 				<td>Great Tiger</td>
-				<td><input id="great"></td>
+				<td><input id="great" onchange="reloadData()"></td>
 				<td><p id="great_split"></p></td>
 				<td><p id="great_best"></p></td>
 				<td><p id="great_pb"></p></td>
@@ -88,7 +90,7 @@
 			</tr>
 			<tr>
 				<td>Bald Bull</td>
-				<td><input id="bald"></td>
+				<td><input id="bald" onchange="reloadData()"></td>
 				<td><p id="bald_split"></p></td>
 				<td><p id="bald_best"></p></td>
 				<td><p id="bald_pb"></p></td>
@@ -96,7 +98,7 @@
 			</tr>
 			<tr>
 				<td>Piston Honda 2</td>
-				<td><input id="piston2"></td>
+				<td><input id="piston2" onchange="reloadData()"></td>
 				<td><p id="piston2_split"></p></td>
 				<td><p id="piston2_best"></p></td>
 				<td><p id="piston2_pb"></p></td>
@@ -104,7 +106,7 @@
 			</tr>
 			<tr>
 				<td>Soda Popinski</td>
-				<td><input id="soda"></td>
+				<td><input id="soda" onchange="reloadData()"></td>
 				<td><p id="soda_split"></p></td>
 				<td><p id="soda_best"></p></td>
 				<td><p id="soda_pb"></p></td>
@@ -112,7 +114,7 @@
 			</tr>
 			<tr>
 				<td>Bald Bull 2</td>
-				<td><input id="bald2"></td>
+				<td><input id="bald2" onchange="reloadData()"></td>
 				<td><p id="bald2_split"></p></td>
 				<td><p id="bald2_best"></p></td>
 				<td><p id="bald2_pb"></p></td>
@@ -120,7 +122,7 @@
 			</tr>
 			<tr>
 				<td>Don Flamenco 2</td>
-				<td><input id="don2"></td>
+				<td><input id="don2" onchange="reloadData()"></td>
 				<td><p id="don2_split"></p></td>
 				<td><p id="don2_best"></p></td>
 				<td><p id="don2_pb"></p></td>
@@ -128,7 +130,7 @@
 			</tr>
 			<tr>
 				<td>Mr. Sandman</td>
-				<td><input id="sand"></td>
+				<td><input id="sand" onchange="reloadData()"></td>
 				<td><p id="sand_split"></p></td>
 				<td><p id="sand_best"></p></td>
 				<td><p id="sand_pb"></p></td>
@@ -136,7 +138,7 @@
 			</tr>
 			<tr>
 			<td>Super Macho Man</td>
-				<td><input id="super"></td>
+				<td><input id="super" onchange="reloadData()"></td>
 				<td><p id="super_split"></p></td>
 				<td><p id="super_best"></p></td>
 				<td><p id="super_pb"></p></td>
@@ -144,26 +146,31 @@
 			</tr>
 			<tr>
 				<td>Mike Tyson</td>
-				<td><input id="mike"></td>
+				<td><input id="mike" onchange="reloadData()"></td>
 				<td><p id="mike_split"></p></td>
 				<td><p id="mike_best"></p></td>
 				<td><p id="mike_pb"></p></td>
 				<td><p>2:07.00</p></td>
 			</tr>
 		</table>
-		<b>Your best time is <span id="personalBest"></span>!</b>
+		<b style=color:lightgreen>Your best time is <span id="personalBest"></span>!</b>
 		<b><br>To control:<br>
-		<br>Enter your segment time into the active segment beside your opponent and press the "Input"
-		<br>button to calculate your splits and add it to the run. Splits will be calculated gradually
-		<br>as each segment is added. When your run is complete and you would like to save your run if
+		<br>Enter your segment time into the active segment beside your opponent. It will update automatically
+		<br>when you click elsewhere, so make sure what you entered is correct! Splits will be calculated
+		<br>gradually as each segment is added. When your run is complete and you would like to save your run if
 		<br>a personal best was acheived, press the "End Run" button. Your PB Segments and best time
 		<br>will be updated accordingly.<br>
-		<br>If at any time your segment is better than your best segment, clicking the "Input" button
-		<br>will update your old best segment with the new best. Please note all saved time and bests
-		<br>data is stored in your browser data. Clearing cache will clear any PB data.<br>
+		<br>If at any time your segment is better than your best segment, your old best segment will be replaced
+		<br>with the new best. Please note all saved time and bests data is stored in your browser data.
+		<br>Clearing cache will clear any PB data, so make sure to download your segments often! NOTE:
+		<br>UPLOADING new segments will OVERWRITE ALL old segments, including PB and best times, so be
+		<br>careful!<br>
 		<br>Any improvement suggestions? New world record appeared? Please open an issue on the github
 		<br>repository, which you can reach by clicking <a href="https://github.com">here</a>.<br>
 		<br>Created by DebugYoshi/StreamCon</b>
+
+
+		
 		<script>
 			window.onload = function() {
 				let glassLoadPB = localStorage.getItem("glass_pb");
@@ -197,20 +204,20 @@
 				let mikeLoadBest = localStorage.getItem("mike_b");
 				let PB = localStorage.getItem("PB");
 
-				glass_pb.innerHTML = formatTime(glassLoadPB) || "";
-				von_pb.innerHTML = formatTime(vonLoadPB) || "";
-				piston_pb.innerHTML = formatTime(pistonLoadPB) || "";
-				don_pb.innerHTML = formatTime(donLoadPB) || "";
-				king_pb.innerHTML = formatTime(kingLoadPB) || "";
-				great_pb.innerHTML = formatTime(greatLoadPB) || "";
-				bald_pb.innerHTML = formatTime(baldLoadPB) || "";
-				piston2_pb.innerHTML = formatTime(piston2LoadPB) || "";
-				soda_pb.innerHTML = formatTime(sodaLoadPB) || "";
-				bald2_pb.innerHTML = formatTime(bald2LoadPB) || "";
-				don2_pb.innerHTML = formatTime(don2LoadPB) || "";
-				sand_pb.innerHTML = formatTime(sandLoadPB) || "";
-				super_pb.innerHTML = formatTime(superLoadPB) || "";
-				mike_pb.innerHTML = formatTime(mikeLoadPB) || "";
+				glass_pb.innerHTML = formatTime(glassLoadPB) || "99:99.99";
+				von_pb.innerHTML = formatTime(vonLoadPB) || "99:99.99";
+				piston_pb.innerHTML = formatTime(pistonLoadPB) || "99:99.99";
+				don_pb.innerHTML = formatTime(donLoadPB) || "99:99.99";
+				king_pb.innerHTML = formatTime(kingLoadPB) || "99:99.99";
+				great_pb.innerHTML = formatTime(greatLoadPB) || "99:99.99";
+				bald_pb.innerHTML = formatTime(baldLoadPB) || "99:99.99";
+				piston2_pb.innerHTML = formatTime(piston2LoadPB) || "99:99.99";
+				soda_pb.innerHTML = formatTime(sodaLoadPB) || "99:99.99";
+				bald2_pb.innerHTML = formatTime(bald2LoadPB) || "99:99.99";
+				don2_pb.innerHTML = formatTime(don2LoadPB) || "99:99.99";
+				sand_pb.innerHTML = formatTime(sandLoadPB) || "99:99.99";
+				super_pb.innerHTML = formatTime(superLoadPB) || "99:99.99";
+				mike_pb.innerHTML = formatTime(mikeLoadPB) || "99:99.99";
 
 				glass_best.innerHTML = formatTime(glassLoadBest) || "99:99.99";
 				von_best.innerHTML = formatTime(vonLoadBest) || "99:99.99";
@@ -229,6 +236,10 @@
 				
 				personalBest.innerHTML = formatTime(PB) || "99:99.99";
 			}
+
+
+//*********************************************************************************
+
 		
 			function parseTime(timeStr) {
         		if (!timeStr) return 0;
@@ -248,6 +259,8 @@
         		return mins > 0 ? `${mins}:${secs}` : secs;
     		}
 
+
+//*********************************************************************************
 
 			function reloadData() {
 				let a = document.getElementById("glass").value || 0;
@@ -417,6 +430,13 @@
 				mike_split.innerHTML = formatTime(tyson_split) || "";
 			}
 
+
+
+//*********************************************************************************
+
+
+
+
 			function endedRun() {
 				let checkTime = document.getElementById("mike_split").innerText || 0;
 				let finalTime = parseTime(checkTime);
@@ -492,6 +512,83 @@
 
 				}
 			}
+
+
+//*********************************************************************************
+
+
+			function download() {
+				let glassPBsave = localStorage.getItem("glass_pb");
+				let vonPBsave = localStorage.getItem("von_pb");
+				let pistonPBsave = localStorage.getItem("piston_pb");
+				let donPBsave = localStorage.getItem("don_pb");
+				let kingPBsave = localStorage.getItem("king_pb");
+				let greatPBsave = localStorage.getItem("great_pb");
+				let baldPBsave = localStorage.getItem("bald_pb");
+				let piston2PBsave = localStorage.getItem("piston2_pb");
+				let sodaPBsave = localStorage.getItem("soda_pb");
+				let bald2PBsave = localStorage.getItem("bald2_pb");
+				let don2PBsave = localStorage.getItem("don2_pb");
+				let sandPBsave = localStorage.getItem("sand_pb");
+				let superPBsave = localStorage.getItem("super_pb");
+				let mikePBsave = localStorage.getItem("mike_pb");
+
+				let glassbestsave = localStorage.getItem("glass_b");
+				let vonbestsave = localStorage.getItem("von_b");
+				let pistonbestsave = localStorage.getItem("piston_b");
+				let donbestsave = localStorage.getItem("don_b");
+				let kingbestsave = localStorage.getItem("king_b");
+				let greatbestsave = localStorage.getItem("great_b");
+				let baldbestsave = localStorage.getItem("bald_b");
+				let piston2bestsave = localStorage.getItem("piston2_b");
+				let sodabestsave = localStorage.getItem("soda_b");
+				let bald2bestsave = localStorage.getItem("bald2_b");
+				let don2bestsave = localStorage.getItem("don2_b");
+				let sandbestsave = localStorage.getItem("sand_b");
+				let superbestsave = localStorage.getItem("super_b");
+				let mikebestsave = localStorage.getItem("mike_b");
+				let bestimesave = localStorage.getItem("PB");
+			
+				const link = document.createElement("a");
+
+				const file = new Blob([glassPBsave + ":" + vonPBsave + ":" + pistonPBsave + ":" + donPBsave + ":" + kingPBsave + ":" + greatPBsave + ":" + baldPBsave + ":" + piston2PBsave + ":" + sodaPBsave + ":" + bald2PBsave + ":" + don2PBsave + ":" + sandPBsave + ":" + superPBsave + ":" + mikePBsave + ":" + glassbestsave + ":" + vonbestsave + ":" + pistonbestsave + ":" + donbestsave + ":" + kingbestsave + ":" + greatbestsave + ":" + baldbestsave + ":" + piston2bestsave + ":" + sodabestsave + ":" + bald2bestsave + ":" + don2bestsave + ":" + sandbestsave + ":" + superbestsave + ":" + mikebestsave + ":" + bestimesave], { type: 'text/plain' });
+
+				link.href = URL.createObjectURL(file);
+				
+				const date = new Date();
+				link.download = "tysonsplits-" + date + ".txt";
+
+				link.click();
+				URL.revokeObjectURL(link.href);
+			}
+
+
+//*********************************************************************************
+
+			function upload(input) {
+				const data = input.files[0];
+				const reader = new FileReader();
+
+				reader.onload = function(e) {
+					const text = e.target.result;
+					const read = text.split(':');
+
+					const bits = [
+						"glass_pb", "von_pb", "piston_pb", "don_pb", "king_pb", 							"great_pb", "bald_pb", "piston2_pb", "soda_pb", "bald2_pb", 						"don2_pb", "sand_pb", "super_pb", "mike_pb", "glass_b", 							"von_b", "piston_b", "don_b", "king_b", "great_b", "bald_b", 						"piston2_b", "soda_b", "bald2_b", "don2_b", "sand_b", 								"super_b", "mike_b", "PB"
+					];
+
+					read.forEach((value, index) => {
+						if (bits[index]) {
+							localStorage.setItem(bits[index], value);
+						}
+					});
+
+					alert("Upload was successful. A site refresh is required for the new data to take affect.");
+				};
+
+				reader.readAsText(data);
+			}
+
 		</script>
 	</body>
 </html>
